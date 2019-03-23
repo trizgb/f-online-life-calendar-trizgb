@@ -55,12 +55,17 @@ class App extends Component {
       createdMood.push(editDayMood);
 
       this.setState({
+        editDayMood: {
+          date: '',
+          mood: '',
+          message: ''  
+        },
         createdMood: createdMood
       });
       this.saveLocalStorage(createdMood, 'mood');
     }
   }
-  
+
   render() {
     return (
       <div className="app">
