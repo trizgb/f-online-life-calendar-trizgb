@@ -8,9 +8,9 @@ class Main extends Component {
       <main className="app__main">
         <div className="app__calendar">
           <Link to="/edit">
-            <button className="calendar-add">+</button>
+            <button className="add__button">+</button>
           </Link>
-          <div className="calendar-container"></div>
+          <div className="calendar__container"></div>
         </div>
       </main>
     )

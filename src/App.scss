@@ -1,4 +1,87 @@
 .app {
   margin: 0;
   background-color: white;
+  font-family: 'Montserrat', sans-serif;
 }
+
+.app__header {}
+
+.app__footer {}
+
+
+//>> Main Component
+.app__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app__calendar {}
+
+.add__button {
+  background-color: #3f9bd1;
+  font-weight: bold;
+
+}
+
+.calendar__container {}
+
+
+//>> Edit Component
+.app__form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app__form {
+}
+
+.app__form-date {
+}
+
+.date-title {}
+
+.date-field {
+  display: block;
+}
+
+.app__form-state {}
+
+.state-title {}
+
+.radio-container {
+  display: block;
+}
+
+.state-happy {}
+
+.state-sad {}
+
+.app__form-message {}
+
+.message-title {}
+
+.message-field {
+  display: block;
+}
+
+.form__buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button-save {
+  background-color: #3f9bd1;
+  color: white;
+  font-weight: bold;
+}
+
+.button-cancel {}
