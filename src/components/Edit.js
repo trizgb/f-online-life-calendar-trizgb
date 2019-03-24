@@ -11,22 +11,22 @@ class Edit extends Component {
         <form action="" className="app__form">
           <div className="app__form-date">
             <label htmlFor="date" className="date-title">Date</label>
-            <input type="date" className="date-field" id="date" data-field="date" onClick={handleEdit} />
+            <input type="text" className="date-field" id="date" data-field="date" placeholder="18/01/2019" onKeyUp={handleEdit} />
           </div>
           <div className="app__form-state">
             <label htmlFor="state" className="state-title">State</label>
-            <div className="radio-container">
-              <label htmlFor="" className="state-happy" >:)
-            <input type="radio" name="mood" value=":)" data-field="mood" onClick={handleEdit} />
+            <div className="radio__container">
+              <label htmlFor="happy" className="label-happy" >
+                <input className="radio radio--happy" id="happy" type="radio" name="mood" value=":)" data-field="mood" onClick={handleEdit} />:)
               </label>
-              <label htmlFor="sad" className="state-sad"  >:(
-            <input type="radio" id="sad" name="mood" value=":(" data-field="mood" onClick={handleEdit} />
+              <label htmlFor="sad" className="label-sad"  >
+                <input className="radio radio--sad" id="sad" type="radio" name="mood" value=":(" data-field="mood" onClick={handleEdit} />:(
               </label>
             </div>
           </div>
           <div className="app__form-message">
-            <label htmlFor="" className="message-title">Message</label>
-            <input type="text" className="message-field" onKeyUp={handleEdit} data-field="message" placeholder="Why is a good day?" />
+            <label htmlFor="message" className="message-title">Message</label>
+            <input className="message-field" id="message" type="text" onKeyUp={handleEdit} data-field="message" placeholder="Why is a good day?" />
           </div>
           <div className="form__buttons">
             <Link to="/">
