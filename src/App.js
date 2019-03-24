@@ -32,8 +32,6 @@ class App extends Component {
         return item.mood;
       });
 
-      console.log(savedMood);
-      console.log(paintSavedMood)
       return paintSavedMood;
     }
   }
