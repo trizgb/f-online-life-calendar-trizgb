@@ -33,8 +33,8 @@ class App extends Component {
   //   }
   // }
 
-  saveLocalStorage(id, mood) {
-    localStorage.setItem(mood, JSON.stringify(id));
+  saveLocalStorage(key, mood) {
+    localStorage.setItem(key, JSON.stringify(mood));
   }
 
   handleEdit(e) {
@@ -43,8 +43,8 @@ class App extends Component {
 
     this.setState((prevState) => {
       const { editDayMood } = prevState;
-      const addInfo = { ...editDayMood, [field]: currentValue }
-      return { editDayMood: addInfo }
+      const addInfo = { ...editDayMood, [field]: currentValue };
+      return { editDayMood: addInfo };
     });
 
   }
@@ -58,27 +58,42 @@ class App extends Component {
         editDayMood: {
           date: '',
           mood: '',
-          message: ''  
+          message: ''
         },
         createdMood: createdMood
       });
-      this.saveLocalStorage(createdMood, 'mood');
+      this.saveLocalStorage('mood', createdMood);
     }
   }
 
+  paintCreatedMood() {
+    const paintedMood = this.state.createdMood.map(item => {
+      const mood = item.mood;
+
+      return mood;
+    });
+
+    return paintedMood;
+  }
+
   render() {
+    const paintedMood = this.paintCreatedMood();
+
     return (
       <div className="app">
         <header className="app__header"></header>
         <Switch>
           <Route exact path="/" render={() => (
-            <Main />
-          )} />
+            <Main
+              paintedMood={paintedMood}
+            />)}
+          />
           <Route path="/edit" render={() => (
             <Edit
               handleEdit={this.handleEdit}
-              pushCreatedMood={this.pushCreatedMood} />
-          )} />
+              pushCreatedMood={this.pushCreatedMood}
+            />)}
+          />
         </Switch>
         <footer className="app__footer"></footer>
       </div>

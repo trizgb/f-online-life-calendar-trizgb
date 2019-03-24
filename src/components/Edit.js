@@ -26,10 +26,12 @@ class Edit extends Component {
           </div>
           <div className="app__form-message">
             <label htmlFor="" className="message-title">Message</label>
-            <input type="text" className="message-field" onKeyUp={handleEdit} data-field="message"placeholder="Why is a good day?" />
+            <input type="text" className="message-field" onKeyUp={handleEdit} data-field="message" placeholder="Why is a good day?" />
           </div>
           <div className="form__buttons">
-            <button type="submit" className="button button-save" onClick={pushCreatedMood}>Save</button>
+            <Link to="/">
+              <button type="submit" className="button button-save" onClick={pushCreatedMood}>Save</button>
+            </Link>
             <Link to="/">
               <button type="button" className="button button-cancel">Cancel</button>
             </Link>
