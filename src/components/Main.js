@@ -15,7 +15,11 @@ class Main extends Component {
           <div className="calendar__container">
             <ul className="mood__list">
               {paintedMood.map((item, index) => {
-               return ( <li className="mood__list-item" key={index}>{item}</li>)
+                if (item === ':)') {
+                  return (<li className="mood__list-item item--happy" key={index}>{item}</li>)
+                } else {
+                  return (<li className="mood__list-item item--sad" key={index}>{item}</li>)
+                }
               })}
             </ul>
           </div>
