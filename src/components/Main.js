@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Main extends Component {
   render() {
-    const { paintedMood } = this.props;
+    const { paintSavedMood }  = this.props;
 
     return (
       <main className="app__main">
@@ -14,7 +14,7 @@ class Main extends Component {
           </Link>
           <div className="calendar__container">
             <ul className="mood__list">
-              {paintedMood.map((item, index) => {
+              {paintSavedMood.map((item, index) => {
                 if (item === ':)') {
                   return (<li className="mood__list-item item--happy" key={index}>{item}</li>)
                 } else {

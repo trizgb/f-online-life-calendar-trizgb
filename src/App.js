@@ -21,17 +21,22 @@ class App extends Component {
     this.pushCreatedMood = this.pushCreatedMood.bind(this);
   }
 
-  // componentDidMount(){
-  //   this.getSavedLocalStorage();
-  // }
+  componentDidMount(){
+    this.getSavedLocalStorage();
+  }
 
-  // getSavedLocalStorage(){
-  //   if (localStorage.getItem('mood') !== null){
-  //     if(editDayMood.mood = ':)'){
+  getSavedLocalStorage(){
+    if (localStorage.getItem('mood') !== null){
+      const savedMood = JSON.parse(localStorage.getItem('mood'));
+      const paintSavedMood = savedMood.map(item => {
+        return item.mood;
+      });
 
-  //     }
-  //   }
-  // }
+      console.log(savedMood);
+      console.log(paintSavedMood)
+      return paintSavedMood;
+    }
+  }
 
   saveLocalStorage(key, mood) {
     localStorage.setItem(key, JSON.stringify(mood));
@@ -46,7 +51,6 @@ class App extends Component {
       const addInfo = { ...editDayMood, [field]: currentValue };
       return { editDayMood: addInfo };
     });
-
   }
 
   pushCreatedMood() {
@@ -66,18 +70,8 @@ class App extends Component {
     }
   }
 
-  paintCreatedMood() {
-    const paintedMood = this.state.createdMood.map(item => {
-      const mood = item.mood;
-
-      return mood;
-    });
-
-    return paintedMood;
-  }
-
   render() {
-    const paintedMood = this.paintCreatedMood();
+    const paintSavedMood = this.getSavedLocalStorage();
 
     return (
       <div className="app">
@@ -85,7 +79,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => (
             <Main
-              paintedMood={paintedMood}
+              paintSavedMood={paintSavedMood}
             />)}
           />
           <Route path="/edit" render={() => (
