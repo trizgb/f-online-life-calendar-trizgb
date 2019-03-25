@@ -56,6 +56,12 @@ class App extends Component {
 
     if (currentCheck === true) {
       if (currentValue === ':(') {
+        this.setState((prevState) => {
+          const { editDayMood } = prevState;
+          const deleteMessage = { ...editDayMood, message: '' }
+          return { editDayMood: deleteMessage }
+        })
+
         this.setState({
           messageContainer: 'hidden'
         });
