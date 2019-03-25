@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Edit extends Component {
   render() {
-    const { handleEdit, pushCreatedMood } = this.props;
+    const { handleEdit, pushCreatedMood, messageContainer } = this.props;
 
     return (
       <div className="app__form-container">
@@ -24,7 +24,7 @@ class Edit extends Component {
               </label>
             </div>
           </div>
-          <div className="app__form-message">
+          <div className={`${messageContainer}`}>
             <label htmlFor="message" className="message-title">Message</label>
             <input className="message-field" id="message" type="text" onKeyUp={handleEdit} data-field="message" placeholder="Why is a good day?" />
           </div>

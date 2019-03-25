@@ -15,7 +15,8 @@ class App extends Component {
         mood: '',
         message: ''
       },
-      createdMood: []
+      createdMood: [],
+      messageContainer: 'hidden'
     }
     this.handleEdit = this.handleEdit.bind(this);
     this.pushCreatedMood = this.pushCreatedMood.bind(this);
@@ -43,6 +44,16 @@ class App extends Component {
   handleEdit(e) {
     const field = e.currentTarget.getAttribute('data-field');
     const currentValue = e.currentTarget.value;
+
+    if(currentValue === ':)') {
+      this.setState({
+        messageContainer: 'app__form-message'
+      });
+    } else {
+      this.setState({
+        messageContainer: 'hidden'
+      });
+    }
 
     this.setState((prevState) => {
       const { editDayMood } = prevState;
@@ -84,6 +95,7 @@ class App extends Component {
             <Edit
               handleEdit={this.handleEdit}
               pushCreatedMood={this.pushCreatedMood}
+              messageContainer={this.state.messageContainer}
             />)}
           />
         </Switch>
