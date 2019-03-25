@@ -24,17 +24,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getSavedLocalStorage();
+    this.getLocalStorage();
   }
 
-  getSavedLocalStorage() {
-    if (localStorage.getItem('mood') !== null) {
-      const savedMood = JSON.parse(localStorage.getItem('mood'));
+  getLocalStorage() {
+    const savedMood = JSON.parse(localStorage.getItem('mood'));
+
+    if (savedMood !== null) {
       const paintSavedMood = savedMood.map(item => {
         return item.mood;
       });
-
       return paintSavedMood;
+    } else {
+      return [];
     }
   }
 
@@ -92,7 +94,7 @@ class App extends Component {
   }
 
   render() {
-    const paintSavedMood = this.getSavedLocalStorage();
+    const paintSavedMood = this.getLocalStorage();
 
     return (
       <div className="app">
