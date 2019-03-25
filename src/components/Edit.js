@@ -17,10 +17,10 @@ class Edit extends Component {
             <label htmlFor="state" className="state-title">State</label>
             <div className="radio__container">
               <label htmlFor="happy" className="label-happy" >
-                <input className="radio radio--happy" id="happy" type="radio" name="mood" value=":)" data-field="mood" onClick={handleEdit} />:)
+                <input className="radio radio--happy" id="happy" type="radio" name="mood" value=":)" data-field="mood" onClick={handleEdit} data-mood=":)"/>:)
               </label>
               <label htmlFor="sad" className="label-sad"  >
-                <input className="radio radio--sad" id="sad" type="radio" name="mood" value=":(" data-field="mood" onClick={handleEdit} />:(
+                <input className="radio radio--sad" id="sad" type="radio" name="mood" value=":(" data-field="mood" onClick={handleEdit} data-mood=":("/>:(
               </label>
             </div>
           </div>

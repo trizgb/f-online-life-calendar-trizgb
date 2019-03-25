@@ -16,8 +16,9 @@ class App extends Component {
         message: ''
       },
       createdMood: [],
-      messageContainer: ''
+      messageContainer: 'hidden'
     }
+
     this.handleEdit = this.handleEdit.bind(this);
     this.pushCreatedMood = this.pushCreatedMood.bind(this);
   }
@@ -44,7 +45,8 @@ class App extends Component {
   handleEdit(e) {
     const field = e.currentTarget.getAttribute('data-field');
     const currentValue = e.currentTarget.value;
-    const { editDayMood } = this.state;
+
+    const currentCheck = e.currentTarget.checked;
 
     this.setState((prevState) => {
       const { editDayMood } = prevState;
@@ -52,14 +54,16 @@ class App extends Component {
       return { editDayMood: addInfo };
     });
 
-    if (editDayMood.mood === ':)') {
-      this.setState({
-        messageContainer: 'app__form-message'
-      });
-    } else {
-      this.setState({
-        messageContainer: 'hidden'
-      });
+    if (currentCheck === true) {
+      if (currentValue === ':(') {
+        this.setState({
+          messageContainer: 'hidden'
+        });
+      } else {
+        this.setState({
+          messageContainer: 'app__form-message'
+        });
+      }
     }
   }
 
