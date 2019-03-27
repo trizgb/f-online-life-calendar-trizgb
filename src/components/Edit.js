@@ -11,7 +11,7 @@ class Edit extends Component {
         <form action="" className="app__form">
           <div className="app__form-date">
             <label htmlFor="date" className="date-title">Date</label>
-            <input type="text" className="date-field" id="date" data-field="date" placeholder="18/01/2019" onKeyUp={handleEdit} />
+            <input type="date" className="date-field" id="date" data-field="date" placeholder="18-01-2019" onChange={handleEdit} />
           </div>
           <div className="app__form-state">
             <label htmlFor="state" className="state-title">State</label>
@@ -31,8 +31,6 @@ class Edit extends Component {
           <div className="form__buttons">
             <Link to="/">
               <button type="submit" className="button button-save" onClick={pushCreatedMood}>Save</button>
-            </Link>
-            <Link to="/">
               <button type="button" className="button button-cancel">Cancel</button>
             </Link>
           </div>

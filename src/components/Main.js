@@ -15,15 +15,16 @@ class Main extends Component {
           <div className="calendar__container">
             <ul className="mood__list">
               {paintSavedMood.map((item, index) => {
-                if (item === ':)') {
+                const { mood, date, message } = item;
+                if (mood === ':)') {
                   return (
-                    <li className="mood__list-item item--happy" key={index}>
-                      <p className="mood__text text--happy">{item}</p>
+                    <li className="mood__list-item item--happy" key={index} title={`${date} - ${message}`}>
+                      <p className="mood__text text--happy">{mood}</p>
                     </li>)
                 } else {
                   return (
-                    <li className="mood__list-item item--sad" key={index}>
-                      <p className="mood__text text--sad">{item}</p>
+                    <li className="mood__list-item item--sad" key={index} title={date}>
+                      <p className="mood__text text--sad">{mood}</p>
                     </li>)
                 }
               })}

@@ -34,6 +34,12 @@ class App extends Component {
       const paintSavedMood = savedMood.map(item => {
         return item.mood;
       });
+
+      this.setState((prevState) => {
+        const { createdMood } = prevState;
+        const addSaved = { ...createdMood, createdMood: savedMood }
+        return addSaved;
+      });
       return paintSavedMood;
     } else {
       return [];
@@ -94,7 +100,7 @@ class App extends Component {
   }
 
   render() {
-    const paintSavedMood = this.getLocalStorage();
+    const paintSavedMood = this.state.createdMood;
 
     return (
       <div className="app">
